@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+const selectedDate = document.querySelector('.selected_Date')
 const monthView = document.querySelector('.monthView')
 const dayBox = document.querySelector('.dayBox')
 
@@ -64,11 +65,23 @@ function generateDays() {
             dayEdit = (i + 1)
             initialMonth = monthEdit 
             initialYear = yearEdit
+
+            selectedDate.textContent = dayEdit + '. ' + months[initialMonth] + ' ' + initialYear
             generateDays()
+
+            selectedDate.classList.add ('orangeBack')
+             setTimeout(() => {
+            selectedDate.classList.remove ('orangeBack')
+            }, 500);
+
+            /* for futher application */ let selectedDateNew = new Date(initialYear, initialMonth, dayEdit)
         })
 
         dayBox.appendChild(genDay)
     }
+
+    
 }
+
 
 

@@ -5,12 +5,14 @@ body {
    
     height: 95vh;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #EBEDF0;
 
 }
 
 h1 {
     font-size: 25px;
     margin-top: 70px;
+    margin-bottom: 25px;
 }
 
 h4 {
@@ -22,76 +24,45 @@ h4 {
     margin-right: auto;
 }
 
-
-.selected_Date {
-    font-size: 17px;
-    font-weight: 600;
-    background-color: rgb(194, 194, 255);
-
-    width: 100%;
-    height: 55px;
-    margin: 0px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-
 .calender {
-    background-color: rgb(255, 238, 168);
-    width: 300px;
+    width: 330px;
+    overflow: hidden;
+    border-radius: 5px;
 
     display: flex;
     flex-direction: column;
     align-items:  center;
+
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.13);
 }
+
+
 
 .monthViewWrap {
     box-sizing: border-box;
     width: 100%;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.158) ;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-color: rgb(255, 210, 210);
-    height: 40px;
-    padding: 5px;
-}
-
-.arrow {
-    font-size: 14px;
-    background-color: rgb(244, 255, 198);
-
-    height: 100%;
-    width: 37px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 4px;
-    transition: 150ms;
-    cursor: pointer;
-}
-
-.arrow:hover {
-    background-color: rgb(216, 226, 172);
+    background-color: rgb(255, 255, 255);
+    height: 37px;
 }
 
 .dayBox {
     box-sizing: border-box;
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.663);
 
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 35px;
     grid-auto-rows: 35px;
     
-    column-gap: 3px;
-    row-gap: 3px;
+    column-gap: 5px;
+    row-gap: 5px;
     padding: 10px;
 }
 
@@ -100,25 +71,119 @@ h4 {
     justify-content: center;
     align-items: center;
 
-    background-color: rgb(231, 168, 168);
+    cursor: pointer;
     font-size: 15px;
     border-radius: 5px;
 
     transition: 150ms;
-    cursor: pointer;
-}
+   /* background-color: rgba(255, 255, 255, 0.853);  */
+    /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); */
+    border: 0.5px solid rgba(0, 0, 0, 0.03);
 
-.day.selected {
-    background-color: #f67c00;
-    color: white;
-
-}
-
-.day.selected:hover {
-    background-color: #f67c00;
-
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 14px;
 }
 
 .day:hover {
-    background-color: rgb(203, 159, 159);
+    background-color: rgb(226, 226, 226);
+    box-shadow: none;
 }
+
+.day:active {
+    transform: translate(0px, -2px);
+    transition: 0ms; 
+}
+
+.day.selected {
+    background-color: #575757;
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.selected_Date {
+    font-size: 17px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.845);
+    background-color: white;
+
+    margin-top: 30px;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 330px;
+    
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.097);
+    transition: 300ms;
+}
+
+.selected_Date.orangeBack {
+    background-color: #fff0e1;
+}
+
+.submitBtn {
+    height: 35px;
+    padding-left: 13px;
+    padding-right: 13px;
+    
+    background-color: #f67c00;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: 150ms;
+    font-size: 15px;
+}
+
+.submitBtn:hover {
+    background-color: #e67300;
+    color: white;
+}
+
+.arrow {
+    box-sizing: border-box;
+    font-size: 14px;
+
+    height: 100%;
+    width: 100px;
+
+    display: flex;
+    align-items: center;
+
+    transition: 300ms;
+    cursor: pointer;
+    
+}
+
+.arrow.prev-mth {
+    padding-left: 55px;
+}
+
+.arrow.next-mth {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    padding-right: 55px;
+}
+
+.arrow:hover {
+    background-image: linear-gradient(to right, rgb(243, 243, 243), rgba(243, 243, 243, 0));
+    padding-left: 15px;
+}
+
+.arrow.next-mth:hover {
+    background-image: linear-gradient(to left, rgb(243, 243, 243), rgba(243, 243, 243, 0));
+    padding-right: 15px;
+}
+
+
