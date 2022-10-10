@@ -1,7 +1,12 @@
 
+window.addEventListener('DOMContentLoaded', () => {
+    generateDays()
+})
+
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const monthView = document.querySelector('.monthView')
+const dayBox = document.querySelector('.dayBox')
 
 const prevBtn = document.querySelector('.arrow.prev-mth')
 const nextBtn = document.querySelector('.arrow.next-mth')
@@ -29,7 +34,7 @@ function previousMth() {
         yearEdit --
     }
     monthView.textContent = months[monthEdit] + ' ' + yearEdit   
-    console.log(monthEdit); 
+    generateDays()
 }
 
 function nextMth() {
@@ -39,6 +44,31 @@ function nextMth() {
         yearEdit ++
     }
     monthView.textContent = months[monthEdit] + ' ' + yearEdit   
-    console.log(monthEdit); 
+    generateDays()
 }
+
+function generateDays() {
+    dayBox.innerHTML = ''  //empty dayBox
+    let daysInMonth = new Date(yearEdit, monthEdit, 0).getDate()
+
+    for (let i = 0; i < daysInMonth; i++) { // generate content in dayBox
+        const genDay = document.createElement('div')
+        genDay.classList.add ('day')
+        genDay.textContent = i + 1
+        
+        if (dayEdit == (i + 1) && monthEdit == initialMonth && yearEdit == initialYear) {
+            genDay.classList.add ('selected')
+        }
+
+        genDay.addEventListener('click', () => {
+            dayEdit = (i + 1)
+            initialMonth = monthEdit 
+            initialYear = yearEdit
+            generateDays()
+        })
+
+        dayBox.appendChild(genDay)
+    }
+}
+
 

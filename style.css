@@ -108,6 +108,17 @@ h4 {
     cursor: pointer;
 }
 
+.day.selected {
+    background-color: #f67c00;
+    color: white;
+
+}
+
+.day.selected:hover {
+    background-color: #f67c00;
+
+}
+
 .day:hover {
     background-color: rgb(203, 159, 159);
 }
